@@ -25,6 +25,8 @@ public class Main {
         AND,
         OR,
         XOR,
+        NAND,
+        NOR,
         NOT;
 
         public static Operator  getOperator(String value){
@@ -42,6 +44,8 @@ public class Main {
             case AND -> booleans.stream().reduce(Boolean::logicalAnd).orElse(false);
             case OR -> booleans.stream().reduce(Boolean::logicalOr).orElse(false);
             case XOR -> booleans.stream().reduce(Boolean::logicalXor).orElse(false);
+            case NAND -> !booleans.stream().reduce(Boolean::logicalAnd).orElse(false);
+            case NOR -> !booleans.stream().reduce(Boolean::logicalOr).orElse(false);
             case NOT -> booleans.size()>0?booleans.get(0):false;
         };
     }
