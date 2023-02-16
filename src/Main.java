@@ -7,7 +7,7 @@ public class Main {
         vars.put("b",true);
         vars.put("c",false);
         vars.put("d",false);
-        Element element =transform("NOT(a, b, XOR(c,a), AND(d,b))");
+        Element element =transform("NAND(XOR(a,b), AND(a,c), NOR(a,d), NAND(b,c), NOT(XOR(b,d)), OR(c,d)))");
         evaluate(element.operators,getValues(vars,element.operands));
 
     }
